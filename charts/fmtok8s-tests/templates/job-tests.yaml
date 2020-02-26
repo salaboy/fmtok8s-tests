@@ -1,15 +1,18 @@
 apiVersion: batch/v1
-kind: Job
+kind: CronJob
 metadata:
   name: "{{ .Release.Name }}-integration-test"
   annotations:
     "helm.sh/hook": test
 spec:
-  template:
+  schedule: "*/5 * * * *"
+  jobTemplate:
     spec:
-      containers:
-        - name: main
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-          command: ["curl", "localhost:8080"]
-      restartPolicy: Never
+      template:
+        spec:
+          containers:
+            - name: main
+              image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+              command: ["curl", "localhost:8080"]
+          restartPolicy: Never
 
