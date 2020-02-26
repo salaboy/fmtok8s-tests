@@ -1,0 +1,162 @@
+
+Showing logs for build [32msalaboy-fmtok8s-tests-master-re-2lrxd-2[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-kv2rd[0m
+{"level":"warn","ts":1582714868.453303,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1582714868.4542334,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32msalaboy-fmtok8s-tests-master-re-2lrxd-2[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-rktj4[0m
+{"level":"warn","ts":1582714869.4107594,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1582714869.4162896,"logger":"fallback-logger","caller":"bash/main.go:64","msg":"Successfully executed command \"sh -c mkdir -p /workspace/source\"; output "}
+
+Showing logs for build [32msalaboy-fmtok8s-tests-master-re-2lrxd-2[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32msalaboy-fmtok8s-tests-master-re-2lrxd-2[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-salaboy-fmtok8s-tests-master-re-2lrxd-ht7k9[0m
+{"level":"warn","ts":1582714876.4794705,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1582714877.6054165,"logger":"fallback-logger","caller":"git/git.go:103","msg":"Successfully cloned https://github.com/*******/fmtok8s-tests.git @ v0.0.2 in path /workspace/source"}
+
+Showing logs for build [32msalaboy-fmtok8s-tests-master-re-2lrxd-2[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:a9303a815e8cf8f84977ca191427892bf1a79cd0
+WARNING: no SHAs to merge, falling back to initial cloned commit
+
+Showing logs for build [32msalaboy-fmtok8s-tests-master-re-2lrxd-2[0m stage [32mfrom-build-pack[0m and container [32mstep-setup-jx-git-credentials[0m
+Generated Git credentials file /workspace/xdg_config/git/credentials
+
+Showing logs for build [32msalaboy-fmtok8s-tests-master-re-2lrxd-2[0m stage [32mfrom-build-pack[0m and container [32mstep-build-mvn-deploy[0m
+Picked up _JAVA_OPTIONS: -XX:+UnlockExperimentalVMOptions -Dsun.zip.disableMemoryMapping=true -XX:+UseParallelGC -XX:MinHeapFreeRatio=5 -XX:MaxHeapFreeRatio=10 -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Xms10m -Xmx192m
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------< com.*******.conferences:tests >--------------------
+[INFO] Building FMTOK8S :: Tests 0.0.2
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:3.1.0:clean (default-clean) @ tests ---
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ tests ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] Copying 0 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ tests ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /workspace/source/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ tests ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /workspace/source/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ tests ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:3.0.0-M1:test (default-test) @ tests ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-jar-plugin:3.1.2:jar (default-jar) @ tests ---
+[INFO] Building jar: /workspace/source/target/tests-0.0.2.jar
+[INFO] 
+[INFO] --- spring-boot-maven-plugin:2.1.9.RELEASE:repackage (repackage) @ tests ---
+[INFO] Replacing main artifact with repackaged archive
+[INFO] 
+[INFO] --- maven-install-plugin:2.5.2:install (default-install) @ tests ---
+[INFO] Installing /workspace/source/target/tests-0.0.2.jar to /home/jenkins/.mvnrepository/com/*******/conferences/tests/0.0.2/tests-0.0.2.jar
+[INFO] Installing /workspace/source/pom.xml to /home/jenkins/.mvnrepository/com/*******/conferences/tests/0.0.2/tests-0.0.2.pom
+[INFO] 
+[INFO] --- maven-deploy-plugin:2.8.2:deploy (default-deploy) @ tests ---
+[INFO] Using alternate deployment repository local-nexus::default::http://nexus/repository/maven-releases/
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  30.007 s
+[INFO] Finished at: 2020-02-26T11:01:52Z
+[INFO] ------------------------------------------------------------------------
+
+Showing logs for build [32msalaboy-fmtok8s-tests-master-re-2lrxd-2[0m stage [32mfrom-build-pack[0m and container [32mstep-build-skaffold-version[0m
+v1.0.1
+
+Showing logs for build [32msalaboy-fmtok8s-tests-master-re-2lrxd-2[0m stage [32mfrom-build-pack[0m and container [32mstep-build-container-build[0m
+[36mINFO[0m[0000] Downloading base image openjdk:11-jre-slim   
+ERROR: logging before flag.Parse: E0226 11:01:53.907912      10 metadata.go:142] while reading 'google-dockercfg' metadata: http status code: 404 while fetching url http://metadata.google.internal./computeMetadata/v1/instance/attributes/google-dockercfg
+ERROR: logging before flag.Parse: E0226 11:01:53.912164      10 metadata.go:159] while reading 'google-dockercfg-url' metadata: http status code: 404 while fetching url http://metadata.google.internal./computeMetadata/v1/instance/attributes/google-dockercfg-url
+2020/02/26 11:01:53 No matching credentials were found, falling back on anonymous
+[36mINFO[0m[0001] Error while retrieving image from cache: getting file info: stat /workspace/sha256:94ff3e5fde40d91a8b50aed635288ec738fbac9f1aa99710082dba3b954f67ed: no such file or directory 
+[36mINFO[0m[0001] Downloading base image openjdk:11-jre-slim   
+2020/02/26 11:01:55 No matching credentials were found, falling back on anonymous
+[36mINFO[0m[0002] cmd: EXPOSE                                  
+[36mINFO[0m[0002] Adding exposed port: 8080/tcp                
+[36mINFO[0m[0002] Using files from context: [/workspace/source/pom.xml] 
+[36mINFO[0m[0002] Using files from context: [/workspace/source/target/tests-0.0.2.jar] 
+[36mINFO[0m[0002] Skipping unpacking as no commands require it. 
+[36mINFO[0m[0002] Taking snapshot of full filesystem...        
+[36mINFO[0m[0002] ENV PORT 8080                                
+[36mINFO[0m[0002] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0002] ENV CLASSPATH /opt/lib                       
+[36mINFO[0m[0002] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0002] EXPOSE 8080                                  
+[36mINFO[0m[0002] cmd: EXPOSE                                  
+[36mINFO[0m[0002] Adding exposed port: 8080/tcp                
+[36mINFO[0m[0002] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0002] Using files from context: [/workspace/source/pom.xml] 
+[36mINFO[0m[0002] COPY pom.xml target/lib* /opt/lib/           
+[36mINFO[0m[0002] Taking snapshot of files...                  
+[36mINFO[0m[0002] Using files from context: [/workspace/source/target/tests-0.0.2.jar] 
+[36mINFO[0m[0002] COPY target/*.jar /opt/app.jar               
+[36mINFO[0m[0002] Taking snapshot of files...                  
+[36mINFO[0m[0002] WORKDIR /opt                                 
+[36mINFO[0m[0002] cmd: workdir                                 
+[36mINFO[0m[0002] Changed working directory to /opt            
+[36mINFO[0m[0002] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0002] CMD ["java", "-jar", "app.jar"]              
+[36mINFO[0m[0002] No files changed in this command, skipping snapshotting. 
+2020/02/26 11:01:57 existing blob: sha256:adf4d10a782b71ea3c226ce20c1acdfb0aeefb137fb5c5fa3100aaa275ec71cd
+2020/02/26 11:01:57 existing blob: sha256:bc51dd8edc1b1132bb97827ed6bd16aac332b03fb03d4c02d2088067a5fbb499
+2020/02/26 11:01:57 existing blob: sha256:d1d06863bb82bdc3f4cd17d49c0dee8720f91c4d9e40cce1b4a691f9459266be
+2020/02/26 11:01:57 existing blob: sha256:7db4424ff27024b682967e5ca869ba018b8667fdc7cbd2718db9ebba95c5e601
+2020/02/26 11:02:00 pushed blob: sha256:5b58db7a66d6f9f607f4f44b487fb8e693f6ba98264e99ee703bbf9b8029b7f2
+2020/02/26 11:02:00 pushed blob: sha256:3b4a05950e9d60bf045ff29c23a4cd723d9c03907850a8bb5d5fd9822ea572b4
+2020/02/26 11:02:02 pushed blob: sha256:26b40ceec4648610b4ac7bb73f7d0341a5857e6fc64d323111122d4af11ff684
+2020/02/26 11:02:03 gcr.io/camunda-consulting-de/fmtok8s-tests:0.0.2: digest: sha256:e776f7ab8d2c325c8224a38f64272d0561c3e0d931e110d791e84f3283194943 size: 1243
+
+Showing logs for build [32msalaboy-fmtok8s-tests-master-re-2lrxd-2[0m stage [32mfrom-build-pack[0m and container [32mstep-build-post-build[0m
+no CVE provider running in the current ** namespace so skip adding image to be analysed
+
+Showing logs for build [32msalaboy-fmtok8s-tests-master-re-2lrxd-2[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-changelog[0m
+Converted /workspace/source/charts/fmtok8s-tests to an unshallow repository
+Generating change log from git ref 56de66cfe1d575914e188a5a87778de730c4d3f0 => a0afcd5f192b53317610add52c58b09010649d21
+Associating user x-0 in users.jenkins.io with email *******@gmail.com to git GitProvider user with login -0 as emails match
+Adding label jenkins.io/git-github-userid=-0 to user x-0 in users.jenkins.io
+WARNING: Failed to enrich commit a9303a815e8cf8f84977ca191427892bf1a79cd0 with issues: User.jenkins.io "x-0" is invalid: metadata.labels: Invalid value: "-0": a valid label must be an empty string or consist of alphanumeric characters, '-', '_' or '.', and must start and end with an alphanumeric character (e.g. 'MyValue',  or 'my_value',  or '12345', regex used for validation is '(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])?')
+Associating user x-0 in users.jenkins.io with email *******@gmail.com to git GitProvider user with login -0 as emails match
+Adding label jenkins.io/git-github-userid=-0 to user x-0 in users.jenkins.io
+WARNING: Failed to enrich commit a9303a815e8cf8f84977ca191427892bf1a79cd0 with issues: User.jenkins.io "x-0" is invalid: metadata.labels: Invalid value: "-0": a valid label must be an empty string or consist of alphanumeric characters, '-', '_' or '.', and must start and end with an alphanumeric character (e.g. 'MyValue',  or 'my_value',  or '12345', regex used for validation is '(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])?')
+Finding issues in commit messages using git format
+WARNING: No release found for *******/fmtok8s-tests and tag v0.0.2 so creating a new release
+Updated the release information at https://github.com/*******/fmtok8s-tests/releases/tag/v0.0.2
+generated: /workspace/source/charts/fmtok8s-tests/templates/release.yaml
+Created Release fmtok8s-tests-0-0-2 resource in namespace **
+Updating PipelineActivity *******-fmtok8s-tests-master-2 with version 0.0.2
+Updated PipelineActivities *******-fmtok8s-tests-master-2 with release notes URL: https://github.com/*******/fmtok8s-tests/releases/tag/v0.0.2
+
+Showing logs for build [32msalaboy-fmtok8s-tests-master-re-2lrxd-2[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-helm-release[0m
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Adding missing Helm repo: storage.googleapis.com https://storage.googleapis.com/chartmuseum.jenkins-x.io
+Successfully added Helm repository storage.googleapis.com.
+Adding missing Helm repo: jenkins-x-chartmuseum http://jenkins-x-chartmuseum:8080
+Successfully added Helm repository jenkins-x-chartmuseum.
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Uploading chart file fmtok8s-tests-0.0.2.tgz to http://jenkins-x-chartmuseum:8080/api/charts
+Received 201 response: {"saved":true}
+
+Showing logs for build [32msalaboy-fmtok8s-tests-master-re-2lrxd-2[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-jx-promote[0m
+WARNING: prow based install so skip waiting for the merge of Pull Requests to go green as currently there is an issue with gettingstatuses from the PR, see https://github.com/jenkins-x/**/issues/2410
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Promoting app fmtok8s-tests version 0.0.2 to namespace **-staging
+WARNING: 
+Created Pull Request: https://github.com/*******/environment-kubecon-prep-staging/pull/16
+Added label updatebot to Pull Request https://github.com/*******/environment-kubecon-prep-staging/pull/16
+got git provider status pending from PR https://github.com/*******/environment-kubecon-prep-staging/pull/16
+got git provider status pending from PR https://github.com/*******/environment-kubecon-prep-staging/pull/16
+got git provider status pending from PR https://github.com/*******/environment-kubecon-prep-staging/pull/16
+got git provider status pending from PR https://github.com/*******/environment-kubecon-prep-staging/pull/16
+got git provider status pending from PR https://github.com/*******/environment-kubecon-prep-staging/pull/16
+got git provider status pending from PR https://github.com/*******/environment-kubecon-prep-staging/pull/16
+got git provider status pending from PR https://github.com/*******/environment-kubecon-prep-staging/pull/16
+Pull Request https://github.com/*******/environment-kubecon-prep-staging/pull/16 is merged at sha e3c583810f9490ecaa986c9066f9a6f0d44d7ee7
+Pull Request merged but we are not waiting for the update pipeline to complete!
