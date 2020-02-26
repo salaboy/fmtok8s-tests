@@ -1,0 +1,16 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: "{{ .Release.Name }}-integration-test"
+spec:
+  schedule: "*/5 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: main
+            image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+            command: ["curl", "localhost:8080"]
+          restartPolicy: Never
+
