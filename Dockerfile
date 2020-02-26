@@ -3,8 +3,6 @@ ENV PORT 8080
 ENV CLASSPATH /opt/lib
 EXPOSE 8080
 
-RUN apk --no-cache add curl
-
 # copy pom.xml and wildcards to avoid this command failing if there's no target/lib directory
 COPY pom.xml target/lib* /opt/lib/
 

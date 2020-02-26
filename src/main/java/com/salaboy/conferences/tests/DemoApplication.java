@@ -1,37 +1,21 @@
 package com.salaboy.conferences.tests;
 
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.BeansException;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.ExitCodeEvent;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.event.EventListener;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
-public class DemoApplication {
-    public static ConfigurableApplicationContext applicationContext;
+public class DemoApplication implements CommandLineRunner, ApplicationContextAware {
 
-    public static void main(String[] args) {
-
-        applicationContext = SpringApplication.run(DemoApplication.class, args);
-    }
-
-}
-
-@Controller
-class TestController {
-    @Value("${version:0}")
-    private String version;
-
-    @GetMapping("/info")
-    public String infoWithVersion() {
-        return "Tests v" + version;
-    }
 
     private static final String CONFERENCE_C4P = "http://fmtok8s-c4p";
 
@@ -39,10 +23,15 @@ class TestController {
 
     private static final String CONFERENCE_AGENDA = "http://fmtok8s-agenda";
 
-    @GetMapping("/")
-    public void test() {
+    private ApplicationContext applicationContext;
 
+    public static void main(String[] args) {
 
+        SpringApplication.run(DemoApplication.class, args);
+    }
+
+    @Override
+    public void run(String... args) throws Exception {
         RestTemplate restTemplate = new RestTemplate();
 
         String agendaInfo = "N/A";
@@ -54,11 +43,11 @@ class TestController {
             c4pInfo = c4p.getBody();
         } catch (Exception ex) {
             ex.printStackTrace();
-            SpringApplication.exit(DemoApplication.applicationContext, () -> 1);
+            SpringApplication.exit(applicationContext, () -> 1);
         }
         if (c4pInfo == null || c4pInfo.equals("")) {
             System.err.println("C4P Service is not Ready");
-            SpringApplication.exit(DemoApplication.applicationContext, () -> 1);
+            SpringApplication.exit(applicationContext, () -> 1);
         } else {
             System.out.println(">> C4P Service Info: " + c4pInfo);
         }
@@ -69,11 +58,11 @@ class TestController {
             agendaInfo = agenda.getBody();
         } catch (Exception ex) {
             ex.printStackTrace();
-            SpringApplication.exit(DemoApplication.applicationContext, () -> 2);
+            SpringApplication.exit(applicationContext, () -> 2);
         }
         if (agendaInfo == null || agendaInfo.equals("")) {
             System.err.println("Agenda Service is not Ready");
-            SpringApplication.exit(DemoApplication.applicationContext, () -> 2);
+            SpringApplication.exit(applicationContext, () -> 2);
         } else {
             System.out.println(">> Agenda Service Info: " + agendaInfo);
         }
@@ -84,18 +73,18 @@ class TestController {
             emailInfo = email.getBody();
         } catch (Exception ex) {
             ex.printStackTrace();
-            SpringApplication.exit(DemoApplication.applicationContext, () -> 3);
+            SpringApplication.exit(applicationContext, () -> 3);
         }
         if (emailInfo == null || emailInfo.equals("")) {
             System.err.println("Email Service is not Ready");
-            SpringApplication.exit(DemoApplication.applicationContext, () -> 3);
+            SpringApplication.exit(applicationContext, () -> 3);
         } else {
             System.out.println(">> Email Service Info: " + emailInfo);
         }
 
         //@TODO: actually create objects and send data to validate that services are interacting.
 
-        SpringApplication.exit(DemoApplication.applicationContext, () -> 0);
+        SpringApplication.exit(applicationContext, () -> 0);
     }
 
     @Bean
@@ -111,5 +100,10 @@ class TestController {
         }
     }
 
-
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        this.applicationContext = applicationContext;
+    }
 }
+
+
